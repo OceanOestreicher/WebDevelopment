@@ -8,7 +8,7 @@ Researched ten websites in order to see what common features are in them. This w
 We also designated someone as our designer for the website.
 
 January 23rd-27th (Week 3)
-All memebers of team have assigned roles. Johanne is the project manager, Ian and Ocean are back end develoeprs, Dominic is the front end developer, and Athur is the web designer.
+All members of team have assigned roles. Johanne is the project manager, Ian and Ocean are back end develoeprs, Dominic is the front end developer, and Athur is the web designer.
 Arhtur has started working on designing how the website will look using Figma.
 
 Setup For Using Laragon Install As Local Repository
