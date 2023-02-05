@@ -1,14 +1,14 @@
-var blooper = document.getElementById("header");
+const tagline = document.getElementById("header");
 
-blooper.addEventListener("click", turnBlue);
+tagline.addEventListener("click", alphaMode);
 
-function turnBlue(){
+function alphaMode(){
 	
-	blooper.style.color = "green";
-	blooper.textContent = "THIS WORKDSSSS";
+	tagline.style.color = "Black";
+	tagline.textContent = "ALPHA XPRESS";
 	
 }
 
 let press = document.getElementById("button");
 
-press.addEventListener("click", turnBlue);
+press.addEventListener("click", alphaMode);
