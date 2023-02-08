@@ -11,6 +11,9 @@ January 23rd-27th (Week 3)
 All members of team have assigned roles. Johanne is the project manager, Ian and Ocean are back end develoeprs, Dominic is the front end developer, and Athur is the web designer.
 Arhtur has started working on designing how the website will look using Figma.
 
+January 30th-February 3rd (Week 4)
+Ocean did a lot of resarch on backend and set up GitHub so we can pull it into Laragon and run it seamlessly. Johanne created a prototype of homepage in HTML, CSS, and JS. Arthur is creating media assets for website as well as designing the website UX Discussed the how we want to structure our database for backend. 
+
 Setup For Using Laragon Install As Local Repository
 
 1. Have a fresh Laragon install
