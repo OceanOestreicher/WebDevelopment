@@ -3,11 +3,9 @@
 
 	
 body{
-	
 	margin: 0;
 	background-color: #8C98A9;
-	
-	letter-spacing: .1em;
+	letter-spacing: .14em;
 }
 
 header{
@@ -19,37 +17,69 @@ header{
 	grid-template-columns: 300px 1fr 300px;
 	grid-template-areas: 	"logo nav form-elements"
 							"logo h1 form-elements";
-	align-items: center;
-	padding: 1em 1em 2em;
+	align-items: flex-start;
+	gap: 1em;
+	padding: .75em 1em 3em;
 	align-content: space-between;
 }
 h1{
-
 	color: white;
 	text-align: center;
 	grid-area: h1;
-	cursor: pointer;
 }
 
 
 nav{
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-
+	justify-content: space-between;
 	gap: 3em;
 	grid-area: nav;
-	
+	margin: .3em auto 0em;
+	width: 80%;
+	height: 100%;
 	
 }
  nav > a{
-		font-size: 35px;
-		color: black;
+	font-size: 35px;
+	color: black;
 	text-decoration: none;
+	padding: 0 .3em 0;
 }
 
 svg{
 	padding: 1em;
+}
+
+#current-page{
+	background-color: #e88080;
+}
+
+a:hover{
+	background-color: brown;
+	color: lightgrey;
+	
+}
+
+a:focus{
+	background-color: #5bc5f5;
+	color: white;
+	padding: 0 .1em 0;
+	margin: 0;
+	outline: none;
+	
+}
+
+#current-page:focus{
+		background-color: #5bc5f5;
+	color: white;
+	padding: 0 .1em 0;
+	margin: 0;
+	outline: none;
+}
+	
+ .form-elements svg:hover{
+	background-color: brown;
 }
 
 #logo{
@@ -149,31 +179,13 @@ hr{
 ;
 }
 
-a:hover{
-	
-	color: lightgrey;
-	
-}
-
-a:focus{
-	background-color: #5bc5f5;
-	border: solid 3px white;
-	color: white;
-	padding: .1em;
-	
-}
-
- .form-elements svg:hover{
-	background-color: brown;
-	border-radius: 9px;
-}
 
 img{
-	  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1em;
-  margin-bottom: 1em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 span{
@@ -228,7 +240,7 @@ button[type="submit"]:hover{
 	
 }
 
-.loginLabl{
+.loginLabel{
 	color: white;
 	font-family: "impact";
 	text-align: center;
