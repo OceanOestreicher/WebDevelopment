@@ -187,3 +187,54 @@ span{
 	justify-content: center;
 	font-family: "Impact";
 }
+
+form{
+	
+	margin: 3em auto 3em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: DarkSeaGreen;
+	width: 600px;
+	height: 300px;
+	border: solid 2px white;
+	padding: 2em;
+}
+
+.inputField{
+	height: 30px;
+	width: 400px;
+	
+}
+
+label{
+	color: white;
+	font-size: 26px;
+}
+
+button[type="submit"]{
+	background-color: white;
+	width: 400px;
+	height: 40px;
+	margin: auto;
+	border: solid 1px #8C98A9;
+	color: #8C98A9;
+}
+
+button[type="submit"]:hover{
+	background-color: #2C3646;
+	color: white;
+	border: solid black 1px;
+	
+}
+
+.loginLabl{
+	color: white;
+	font-family: "impact";
+	text-align: center;
+	font-style: bold;
+	text-decoration: underline;
+	font-size: 36px;
+	margin-top: 30px;
+	
+}
