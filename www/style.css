@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital@1&display=swap');
 
+	
 body{
 	margin: 0;
-	
+	background-color: #8C98A9;
+	letter-spacing: .14em;
 }
 
 header{
+	font-family: "Impact";
 	background-color: #c21313;
 	height: 100px;
 	display: grid;
@@ -12,36 +17,69 @@ header{
 	grid-template-columns: 300px 1fr 300px;
 	grid-template-areas: 	"logo nav form-elements"
 							"logo h1 form-elements";
-	align-items: center;
-	padding: 1em 1em 2em;
+	align-items: flex-start;
+	gap: 1em;
+	padding: .75em 1em 3em;
 	align-content: space-between;
 }
 h1{
-
 	color: white;
 	text-align: center;
 	grid-area: h1;
-	cursor: pointer;
 }
 
 
 nav{
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-
+	justify-content: space-between;
 	gap: 3em;
 	grid-area: nav;
+	margin: .3em auto 0em;
+	width: 80%;
+	height: 100%;
 	
 }
  nav > a{
-		font-size: 35px;
-		color: black;
+	font-size: 35px;
+	color: black;
 	text-decoration: none;
+	padding: 0 .3em 0;
 }
 
 svg{
 	padding: 1em;
+}
+
+#current-page{
+	background-color: #e88080;
+}
+
+a:hover{
+	background-color: brown;
+	color: lightgrey;
+	
+}
+
+a:focus{
+	background-color: #5bc5f5;
+	color: white;
+	padding: 0 .1em 0;
+	margin: 0;
+	outline: none;
+	
+}
+
+#current-page:focus{
+		background-color: #5bc5f5;
+	color: white;
+	padding: 0 .1em 0;
+	margin: 0;
+	outline: none;
+}
+	
+ .form-elements svg:hover{
+	background-color: brown;
 }
 
 #logo{
@@ -56,16 +94,11 @@ svg{
 	align-items: center;
 	grid-area: form-elements;
 }
-span{
-	color: orange;
-	font-size: 27px;
-
-}
 
 #promos{
 	height: 500px;
-
-	background-color: pink;
+	background-image: url("img/promo-section-background.jpg");
+	
 }
 
 #top-products{
@@ -87,38 +120,133 @@ span{
 }
 
 #tag-lines{
-	background-color: orange;
-	
+	display: flex;
+	flex-direction: column;
+	background-color: #2C3646;
+	color: white;
+	border-right: solid 3px #8C98A9;
+	font-size: 26px;
+	font-family: "Fira Sans condensed";
 }
 #models{
-	background-color: Aquamarine;
-	
+	background-color: #2C3646;
+	color: white;
+	font-style: italic;
+	font-family: "Fira Sans condensed";
+}
+
+#models p{
+	text-align: center;
+	font-size: 20px;
 }
 
 footer{
-	height: 250px;
+	height: 400px;
 	background-color: DarkSeaGreen;
 	
 }
 
-.placeholder-text{
+.footer-links{
+	width: 600px;
+	height: 50%;
 	display: flex;
-	align-items: center;
-	font-size: 50px;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin: auto;
+	align-content: center;
+	row-gap: 1em;
+	column-gap: 3em;
+	padding-top: 6em;
+	font-family: "Impact";
 
 }
+
+.footer-links a{
+	text-decoration: none;
+	color: white;
+	font-size: 23px;
+}
+
+.section-name{
+	font-size: 50px;
+	margin: .25em;
+	font-family: "Impact";
+}
+
 hr{
 	
-	border: solid 3px white;
+	border: solid 1px #8C98A9;
+;
 }
 
-a:hover{
+
+img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+span{
+	color: white;
+	font-style: bold;
+	font-size: 20px;
+	margin: auto;
+	display: flex;
+	margin-top: 3em;
+	align-items: flex-end;
+	justify-content: center;
+	font-family: "Impact";
+}
+
+form{
 	
-	color: lightgrey;
+	margin: 3em auto 3em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: DarkSeaGreen;
+	width: 600px;
+	height: 300px;
+	border: solid 2px white;
+	padding: 2em;
+}
+
+.inputField{
+	height: 30px;
+	width: 400px;
 	
 }
 
- .form-elements svg:hover{
-	background-color: brown;
-	border-radius: 9px;
+label{
+	color: white;
+	font-size: 26px;
+}
+
+button[type="submit"]{
+	background-color: white;
+	width: 400px;
+	height: 40px;
+	margin: auto;
+	border: solid 1px #8C98A9;
+	color: #8C98A9;
+}
+
+button[type="submit"]:hover{
+	background-color: #2C3646;
+	color: white;
+	border: solid black 1px;
+	
+}
+
+.loginLabel{
+	color: white;
+	font-family: "impact";
+	text-align: center;
+	font-style: bold;
+	text-decoration: underline;
+	font-size: 36px;
+	margin-top: 30px;
+	
 }
