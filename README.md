@@ -30,3 +30,12 @@ Setup For Using Laragon Install As Local Repository
 	- git remote add origin https://github.com/OceanOestreicher/WebDevelopment.git
 	- git pull origin main
 	- git branch -u origin/main
+	
+To Use Everything
+
+	-Start the mySql server(Right click on laragon, MySql, Start MySql
+	-Open the terminal in laragon and navigate to the node folder
+	-run Node server.js
+	
+	-You should be able to know access all features. Sometimes the Apache webserver doesn't work correctly but if you open
+	 index.html you should be able to navigate around.
