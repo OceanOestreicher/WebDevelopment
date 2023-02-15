@@ -11,10 +11,10 @@ body{
 header{
 	font-family: "Impact";
 	background-color: #c21313;
-	height: 100px;
+	height: 120px;
 	display: grid;
 	grid-template-rows: 1fr 1fr;
-	grid-template-columns: 300px 1fr 300px;
+	grid-template-columns: 200px 1fr 200px;
 	grid-template-areas: 	"logo nav form-elements"
 							"logo h1 form-elements";
 	align-items: flex-start;
@@ -36,8 +36,6 @@ nav{
 	gap: 3em;
 	grid-area: nav;
 	margin: .3em auto 0em;
-	width: 80%;
-	height: 100%;
 	
 }
  nav > a{
@@ -78,6 +76,13 @@ a:focus{
 	outline: none;
 }
 	
+.section-name:focus{
+	background-color: #5bc5f5;
+	color: white;
+	margin: 0;
+	outline: none;
+}
+	
  .form-elements svg:hover{
 	background-color: brown;
 }
@@ -102,14 +107,75 @@ a:focus{
 }
 
 #top-products{
-	height: 300px;
+	height: 420px;
 	background-color: grey;
 	
 }
+
+#top-products img{
+		height: 80%;
+		border: solid black 3px;
+	
+}
+
+#top-products img:hover{
+		height: 80%;
+		border: solid #c21313 3px;
+	
+}
+
+.product-container{
+	display: flex;
+	flex-direction: row;
+	align-content: flex-start;
+	justify-content: center;
+	height: 90%;
+}
+
+.product-link{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 300px;
+	
+}
+
+
+
+.product-link a{
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	font-family: "Fira Sans condensed";
+}
+
+.product-header{
+	font-size: 30px;
+	font-family: "Impact";
+	color: white;
+	text-align: center;
+	margin: 10px auto 0;
+	
+}
+
 #misson-statement{
 	height: 325px;
-	background-color: lime;
+	background-image: linear-gradient(to bottom, #393938, #535451, #6f706c, #8c8d89, #aaaca6);
+	color: white;
+	font-size: 25px;
+	text-align: center;
+	padding-top: 1em;
+	font-family: "Fira Sans condensed";
 	
+}
+
+#misson-statement  p{
+	width: 80%;
+	text-align: center;
+	margin: 1em auto 1em;
 }
 
 #promo-material{
@@ -154,6 +220,7 @@ footer{
 	flex-wrap: wrap;
 	margin: auto;
 	align-content: center;
+	justify-content: flex-start;
 	row-gap: 1em;
 	column-gap: 3em;
 	padding-top: 6em;
