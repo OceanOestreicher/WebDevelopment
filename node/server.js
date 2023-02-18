@@ -1,9 +1,9 @@
 var express = require('express');
 var app = express();
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended : false}));
+app.use(express.static('../www'))
 var fs = require("fs");
-const { connect } = require('http2');
 
 const mysql = require('mysql');
 const connection = mysql.createConnection({
@@ -17,6 +17,9 @@ connection.connect((err) => {
   console.log('Database successfully connected');
 });
 
+var loggedIn = false;
+
+//Test query function of all users in the database
  app.get('/listUsers', function (req, res) {
     connection.query('SELECT * FROM accounts', (err,rows) => {
         if(err) throw err;
@@ -26,9 +29,27 @@ connection.connect((err) => {
       });
       res.end(rows);
  })
+
+ //Index page: localhost:3000/
+ app.get('/',function(req,res){
+    res.sendFile('index.html', {root: '../www'});
+ })
+
+//Handles login/logout and account redirections
+app.get('/accounts',function(req,res){
+  if(loggedIn){
+    res.redirect("/index.html");
+    //This should be executed once we implement log out features and/or account features
+  }
+  else{
+    res.sendFile('/pages/account.html', {root: '../www'});
+  }
+})
+//Checks if a user is in our database and that they used the correct password
  app.post('/validateLogin', function (req, res) {
-    var email = req.body["accountEmail"];
-    var password = req.body["accountPassword"];
+    var email = req.body["email"];
+    var password = req.body["password"];
+    console.log(email + " "+password);
     let sql = 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
     connection.query(sql,[email,password], (err,rows) => {
         if(err) throw err;
@@ -36,25 +57,17 @@ connection.connect((err) => {
         console.log(rows);
         rows.forEach(row => {
             console.log(row.valid);
-            if(row.valid == 0)res.end("Invalid Credentials");
-            else res.end("Credentials Validated");
+            if(row.valid == 0)res.status(200).json({message:"Failed"});
+            else{
+              loggedIn = true;
+              res.status(200).json({message:"Passed"});
+              //res.redirect("/index.html");
+              
+            } 
         });
       });
-      /*
-    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-        var users = JSON.parse(data);
-        for(const user in users){
-            if(users[user]["email"]==email){
-                if(users[user]["password"]==password)res.end("Credentials Validated");
-                else res.end("Invalid Credentials");
-            }
-            
-        }
-    });*/
  })
 
 var server = app.listen(3000, function () {
-    var host = server.address().address
-    var port = server.address().port
-    console.log("Server listening at http://%s:%s", host, port)
+    console.log("Server listening at localhost:3000")
  })

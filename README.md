@@ -36,6 +36,7 @@ To Use Everything
 	-Start the mySql server(Right click on laragon, MySql, Start MySql
 	-Open the terminal in laragon and navigate to the node folder
 	-run Node server.js
+	-on you browser type localhost:3000/
 	
-	-You should be able to know access all features. Sometimes the Apache webserver doesn't work correctly but if you open
+	-You should be able to now access all features. Sometimes the Apache webserver doesn't work correctly but if you open
 	 index.html you should be able to navigate around.
