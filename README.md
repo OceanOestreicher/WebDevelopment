@@ -17,6 +17,9 @@ Ocean did a lot of resarch on backend and set up GitHub so we can pull it into L
 February 6th-10th (Week 5)
 Added account, shopping, cart, about us, and testimonials pages in pages file that stores auxiliary pages. Arthur created media that is now being used to build homepage. Johanne linked Homepage to Account page. Ocean linked front-end to back-end using Node.js. Account Page has two input fields that can interface with a server now. WCAG pressentation is fully done with Ian, Ocean, Johanne, and Arthur as speakers; Dominic will demostrate the website to the class as of 02.12.2023.
 
+February 13th-17th (Week 6)
+All page's nav bars now functionally link to each other. Home page is finished besides adding more top products and other stylistic changes. Ocean and Ian worked on back-end server and database. They made it so you can dynamically generate products dispayed in the "top products" section of homepage. Product's alt tag, iamge source, and name are stored in a database now. Johanne altered server.js to make the generation of products work bettter.
+
 Setup For Using Laragon Install As Local Repository
 
 1. Have a fresh Laragon install
