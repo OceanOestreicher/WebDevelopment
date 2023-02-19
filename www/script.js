@@ -23,17 +23,24 @@ async function getProductCards(){
 				</div>
 	*/
 	var productsJson = await getProducts();
-	var ret = "";
+	
 	for(var i = 0; i < productsJson.length;i++){
-		console.log(productsJson[i].pid + " "+productsJson[i].img_name + " "+productsJson[i].alt + " "+productsJson[i].title);
-		var prod = "<div class=\"itemized-item\">";
-		prod += "<div class=\"product-link\">";
-		prod += "<img src=\"img/"+productsJson[i].img_name+"\" alt=\""+productsJson[i].alt+"\"></div>";
-		prod += "<a href=\"pages/product-page.html\">"+productsJson[i].title+"<a>"//product-page.html needs to be dynamic
-		prod += "</div>";
-		ret += prod;
+		var ret = document.createElement("div");
+		ret.setAttribute("class", "product-link");
+		var image = document.createElement("img");
+		image.src = "img/"+productsJson[i].img_name;
+		image.alt = productsJson[i].alt;
+		
+		var prodLink = document.createElement("a");
+		prodLink.href = "pages\/product-page.html";
+		prodLink.innerText = productsJson[i].title;
+		
+		ret.append(image,prodLink);
+	
+		document.getElementById("product-content").appendChild(ret);
+
 	}
-	document.getElementById("product-content").innerHTML = ret;
+	
 	 
 }
 
