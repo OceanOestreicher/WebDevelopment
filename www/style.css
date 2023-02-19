@@ -141,7 +141,9 @@ a:focus{
 	width: 300px;
 	
 }
-
+.itemized-item{
+	display: flex;
+}
 
 
 .product-link a{

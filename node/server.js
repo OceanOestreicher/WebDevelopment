@@ -29,6 +29,14 @@ var loggedIn = false;
       });
       res.end(rows);
  })
+  //Index page: localhost:3000/
+  app.get('/getProducts',function(req,res){
+    connection.query('SELECT * FROM products', (err,rows) => {
+      if(err) throw err;
+      res.status(200).json(rows);
+    });
+    
+ })
 
  //Index page: localhost:3000/
  app.get('/',function(req,res){
