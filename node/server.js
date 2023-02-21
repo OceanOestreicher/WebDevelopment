@@ -46,7 +46,8 @@ var loggedIn = false;
 //Handles login/logout and account redirections
 app.get('/accounts',function(req,res){
   if(loggedIn){
-    res.redirect("/index.html");
+    loggedIn = false;
+    res.redirect("/account.html");
     //This should be executed once we implement log out features and/or account features
   }
   else{
