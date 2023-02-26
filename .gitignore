@@ -4,4 +4,6 @@
 /bin
 laragon.exe
 *.ibt
-binlog.*
+binlog*
+/data
+!/data/mysql-8/project_database
