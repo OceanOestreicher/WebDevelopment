@@ -47,7 +47,7 @@ var loggedIn = false;
 app.get('/accounts',function(req,res){
   if(loggedIn){
     loggedIn = false;
-    res.redirect("/account.html");
+    res.sendStatus(204);
     //This should be executed once we implement log out features and/or account features
   }
   else{
@@ -66,12 +66,10 @@ app.get('/accounts',function(req,res){
         console.log(rows);
         rows.forEach(row => {
             console.log(row.valid);
-            if(row.valid == 0)res.status(200).json({message:"Failed"});
+            if(row.valid == 0)res.sendStatus(400)
             else{
               loggedIn = true;
-              res.status(200).json({message:"Passed"});
-              //res.redirect("/index.html");
-              
+              res.sendStatus(200);
             } 
         });
       });

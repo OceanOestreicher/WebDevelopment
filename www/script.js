@@ -71,15 +71,13 @@ async function  validateLogin(){
   		'Content-Type': 'application/json'
 	},
 	body: JSON.stringify(data),
-}).then(response => response.json()).then(response =>{
-	if(response['message'] == 'Failed'){
+}).then(response => {
+	if(response.status == 400){
 		alert("Invalid Credentials Entered");
 		return false;
 	} 
 	else{
-		console.log("True");
 		window.location.replace("http://localhost:3000/");
-		return true;
 	} 
 });
 }

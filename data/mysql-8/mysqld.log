@@ -377,3 +377,53 @@
 2023-02-26T18:45:07.514477Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
 2023-02-26T18:45:07.558924Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
 2023-02-26T18:45:07.559007Z 0 [System] [MY-010931] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2023-02-26T20:22:40.675001Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2023-02-26T20:22:40.675065Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2023-02-26T20:22:40.675094Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 19268
+2023-02-26T20:22:40.723547Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-02-26T20:22:44.296694Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysqld: File '.\binlog.000028' not found (OS errno 2 - No such file or directory)
+2023-02-26T20:22:45.592361Z 0 [ERROR] [MY-010958] [Server] Could not open log file.
+2023-02-26T20:22:45.592600Z 0 [ERROR] [MY-010041] [Server] Can't init tc log
+2023-02-26T20:22:45.592811Z 0 [ERROR] [MY-010119] [Server] Aborting
+2023-02-26T20:22:46.950984Z 0 [System] [MY-010910] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.
+2023-02-26T20:22:50.347210Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2023-02-26T20:22:50.347254Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2023-02-26T20:22:50.347279Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 20292
+2023-02-26T20:22:50.367524Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-02-26T20:22:53.033987Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysqld: File '.\binlog.000028' not found (OS errno 2 - No such file or directory)
+2023-02-26T20:22:54.605664Z 0 [ERROR] [MY-010958] [Server] Could not open log file.
+2023-02-26T20:22:54.605902Z 0 [ERROR] [MY-010041] [Server] Can't init tc log
+2023-02-26T20:22:54.606107Z 0 [ERROR] [MY-010119] [Server] Aborting
+2023-02-26T20:22:55.086826Z 0 [System] [MY-010910] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.
+2023-02-26T20:24:10.488207Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2023-02-26T20:24:10.488247Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2023-02-26T20:24:10.488269Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 9124
+2023-02-26T20:24:10.520797Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-02-26T20:24:13.920228Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysqld: File '.\binlog.000028' not found (OS errno 2 - No such file or directory)
+2023-02-26T20:24:15.371683Z 0 [ERROR] [MY-010958] [Server] Could not open log file.
+2023-02-26T20:24:15.371914Z 0 [ERROR] [MY-010041] [Server] Can't init tc log
+2023-02-26T20:24:15.372120Z 0 [ERROR] [MY-010119] [Server] Aborting
+2023-02-26T20:24:16.667447Z 0 [System] [MY-010910] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.
+2023-02-26T20:24:20.550139Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2023-02-26T20:24:20.550228Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2023-02-26T20:24:20.550252Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 7624
+2023-02-26T20:24:20.587921Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-02-26T20:24:22.989275Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+mysqld: File '.\binlog.000028' not found (OS errno 2 - No such file or directory)
+2023-02-26T20:24:24.725928Z 0 [ERROR] [MY-010958] [Server] Could not open log file.
+2023-02-26T20:24:24.726154Z 0 [ERROR] [MY-010041] [Server] Can't init tc log
+2023-02-26T20:24:24.726354Z 0 [ERROR] [MY-010119] [Server] Aborting
+2023-02-26T20:24:25.317656Z 0 [System] [MY-010910] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.
+2023-02-26T20:32:00.411171Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2023-02-26T20:32:00.411217Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2023-02-26T20:32:00.411241Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 18596
+2023-02-26T20:32:00.451709Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-02-26T20:32:03.681769Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-02-26T20:32:05.285859Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: C:\laragon\bin\mysql\mysql-8.0.30-winx64\lib\private\.
+2023-02-26T20:32:05.314824Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-02-26T20:32:05.315123Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-02-26T20:32:05.350852Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2023-02-26T20:32:05.350916Z 0 [System] [MY-010931] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
