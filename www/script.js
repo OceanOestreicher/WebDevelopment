@@ -13,7 +13,31 @@ function alphaMode(){
 
 async function generateProductInfo(){
 	const urlParams = new URLSearchParams(window.location.search);
+	var data;
 	console.log(urlParams.get("img_name"));
+	var response = await fetch("http://localhost:3000/productPage/" + urlParams.get("img_name"), {
+	method: 'GET',
+	headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json'
+	}})
+	.then((response) => response.json())
+	.then((d) => {
+		data = d[0]
+		console.log(data);
+	});
+		var ret = document.createElement("div");
+		var image = document.createElement('img');
+		image.src = "../img/" + data.img_name;
+		console.log(image.src);
+		console.log(data.img_name);
+		image.alt = data.alt;
+		image.width = 500;
+		var prodInfo = document.createElement("p");
+		var prodDesc = data.description;
+		prodInfo.innerText = data.title + " Price : $" + data.price + " Quantity: " + data.quantity;
+		ret.append(image, prodInfo, prodDesc);
+		document.getElementById('product-info').appendChild(ret);
 }
 
 async function getProductCards(){
