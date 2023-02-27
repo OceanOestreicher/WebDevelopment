@@ -11,6 +11,11 @@ function alphaMode(){
 	
 }
 
+async function generateProductInfo(){
+	const urlParams = new URLSearchParams(window.location.search);
+	console.log(urlParams.get("img_name"));
+}
+
 async function getProductCards(){
 	/*
 		get json results of 1 random product from database
@@ -30,11 +35,12 @@ async function getProductCards(){
 		var ret = document.createElement("div");
 		ret.setAttribute("class", "product-link");
 		var image = document.createElement("img");
+		var i_name =productsJson[i].img_name; 
 		image.src = "img/"+productsJson[i].img_name;
 		image.alt = productsJson[i].alt;
 		
 		var prodLink = document.createElement("a");
-		prodLink.href = "pages\/product-page.html";
+		prodLink.href = "pages\/product-page.html?img_name="+i_name;
 		prodLink.innerText = productsJson[i].title;
 		
 		ret.append(image,prodLink);

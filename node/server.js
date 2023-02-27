@@ -29,6 +29,13 @@ var loggedIn = false;
       });
       res.end(rows);
  })
+ app.get('/productPage/:img_name',(req,res,next)=>{
+  let query = 'SELECT * FROM products where ? = img_name'
+  connection.query(query,[req.params.img_name], (err,rows) => {
+    if(err) throw err;
+    res.status(200).json(rows);
+  });
+ })
   //Index page: localhost:3000/
   app.get('/getProducts',function(req,res){
     connection.query('SELECT * FROM products', (err,rows) => {
