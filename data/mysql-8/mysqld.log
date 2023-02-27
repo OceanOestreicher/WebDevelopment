@@ -427,3 +427,25 @@ mysqld: File '.\binlog.000028' not found (OS errno 2 - No such file or directory
 2023-02-26T20:32:05.315123Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
 2023-02-26T20:32:05.350852Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
 2023-02-26T20:32:05.350916Z 0 [System] [MY-010931] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2023-02-27T00:58:33.159411Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2023-02-27T00:58:33.159749Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2023-02-27T00:58:33.159774Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 1948
+2023-02-27T00:58:33.217109Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-02-27T00:58:33.672332Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-02-27T00:58:33.856747Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2023-02-27T00:58:33.860128Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2023-02-27T00:58:33.884643Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: C:\laragon\bin\mysql\mysql-8.0.30-winx64\lib\private\.
+2023-02-27T00:58:33.912517Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-02-27T00:58:33.912811Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-02-27T00:58:33.951709Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2023-02-27T00:58:33.951733Z 0 [System] [MY-010931] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2023-02-27T00:59:05.978879Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2023-02-27T00:59:05.978915Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2023-02-27T00:59:05.978940Z 0 [System] [MY-010116] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 9888
+2023-02-27T00:59:05.996411Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-02-27T00:59:05.996988Z 1 [ERROR] [MY-012271] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2023-02-27T00:59:05.997268Z 1 [ERROR] [MY-012278] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2023-02-27T00:59:05.997547Z 1 [ERROR] [MY-010334] [Server] Failed to initialize DD Storage Engine
+2023-02-27T00:59:05.997969Z 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2023-02-27T00:59:05.998215Z 0 [ERROR] [MY-010119] [Server] Aborting
+2023-02-27T00:59:06.001918Z 0 [System] [MY-010910] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.

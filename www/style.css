@@ -62,7 +62,6 @@ a:hover{
 a:focus{
 	background-color: #5bc5f5;
 	color: white;
-	padding: 0 .1em 0;
 	margin: 0;
 	outline: none;
 	
@@ -71,7 +70,6 @@ a:focus{
 #current-page:focus{
 		background-color: #5bc5f5;
 	color: white;
-	padding: 0 .1em 0;
 	margin: 0;
 	outline: none;
 }
@@ -96,6 +94,7 @@ a:focus{
 	display: flex;
 	flex-direction: row;
 	gap: 3em;
+	flex-wrap: wrap;
 	align-items: center;
 	grid-area: form-elements;
 }
@@ -316,5 +315,11 @@ button[type="submit"]:hover{
 	text-decoration: underline;
 	font-size: 36px;
 	margin-top: 30px;
+	
+}
+
+#userName{
+	font-size: 20px;
+	color: white;
 	
 }

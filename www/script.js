@@ -1,5 +1,7 @@
 const tagline = document.getElementById("header");
 
+let userNameMessage = "not logged in";
+
 //tagline.addEventListener("click", alphaMode);
 
 function alphaMode(){
@@ -59,6 +61,7 @@ return response.json();
 
 //Fetch Api, login form frontend validation function
 async function  validateLogin(){
+
 	var e = document.getElementById("accountEmail").value;
 	var p = document.getElementById("accountPassword").value;
 	console.log("Frontend: "+e + " "+p);
@@ -73,11 +76,73 @@ async function  validateLogin(){
 	body: JSON.stringify(data),
 }).then(response => {
 	if(response.status == 400){
-		alert("Invalid Credentials Entered");
+		document.getElementById("error-Message").innerText = ("Invalid Credentials Entered");
 		return false;
 	} 
 	else{
+		//creates email cookie and sessionID cookie
+		createCookies(e);
+		userNameMessage = e;
 		window.location.replace("http://localhost:3000/");
 	} 
 });
+}
+
+function createCookies(email){ 
+	//create email cookie and sessionID cookie 
+	//session only lasts 30 minutes 
+	var now = new Date(); var minutes = 30; 
+	now.setTime(now.getTime() + (minutes * 60 * 1000)); 
+	document.cookie = "email=" + email + "; expires=" + now.toGMTString() + ";"; 
+	document.cookie = "sessionID=" + Math.random() * 100  + "; expires=" + now.toGMTString() + ";"; 
+	//alter database to store sessionID so that it can be used to match against stored cookie 
+
+}
+
+//this function should be called when the user logs out
+function deleteCookies(){
+	document.cookie = "email= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+	document.cookie = "sessionID= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+}
+
+//checks if the computer has the cookies from a previous session so it knows to display the email address
+function checkCookies(){
+	let cookies = document.cookie;
+	const cookiesPair = cookies.split(';');
+	
+	if(cookiesPair.length === 1){
+		return false;
+	}
+	
+	const firstCookie = cookiesPair[1];
+	
+		if(firstCookie.substr(0,6).trim() === "email"){
+			return true;
+
+		}
+		else{
+			return false;
+		}
+}
+
+//this should extend the session of user if the user logs in again with active session
+function extendSession(){
+	
+	
+}
+//displays the email address to the user if they have already been logged in and there session is still active,
+//if not, then it will display "Not Logged In!"
+function displayUserName(){
+	
+	const userName = document.getElementById("userName");
+	let cookies = document.cookie;
+	const emailCookie = cookies.split(';');
+	
+	if(checkCookies()){
+	userName.innerHTML = emailCookie[1].substring(7);
+	
+	}
+	else{
+		userName.innerHTML = "Not Logged In!";
+	}
 }
