@@ -3,6 +3,7 @@
 /etc
 /bin
 /data/mysql-8/*
+!/data/mysql-8/ibdata1
 !/data/mysql-8/project_database/
 !/data/mysql-8/mysql.ibd
 !/data/mysql-8/#innodb_redo/
