@@ -1,9 +1,0 @@
-/usr
-/tmp
-/etc
-/bin
-laragon.exe
-*.ibt
-binlog*
-/data
-!/data/mysql-8/project_database
