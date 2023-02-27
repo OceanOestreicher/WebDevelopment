@@ -1,0 +1,7 @@
+/usr
+/tmp
+/etc
+/bin
+/data/mysql-8/*
+!/data/mysql-8/project_database/
+laragon.exe
