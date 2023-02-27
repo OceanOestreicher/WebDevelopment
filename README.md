@@ -20,6 +20,9 @@ Added account, shopping, cart, about us, and testimonials pages in pages file th
 February 13th-17th (Week 6)
 All page's nav bars now functionally link to each other. Home page is finished besides adding more top products and other stylistic changes. Ocean and Ian worked on back-end server and database. They made it so you can dynamically generate products dispayed in the "top products" section of homepage. Product's alt tag, iamge source, and name are stored in a database now. Johanne altered server.js to make the generation of products work bettter.
 
+February 20th-24th (Week 7)
+Ocean implemented logining and logging off through the website. Gropu set a set plan for what we will be doing for next week. Ian added pirce, quantity, description, reviews to the products table, Johanne added simple Cookies to website for displaying user's email and keeping track of active sessions.
+
 Setup For Using Laragon Install As Local Repository
 
 1. Have a fresh Laragon install
