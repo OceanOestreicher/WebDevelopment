@@ -4,4 +4,6 @@
 /bin
 /data/mysql-8/*
 !/data/mysql-8/project_database/
+!/data/mysql-8/#innodb_redo/
+/data/mysql-8/#innodb_redo/*_tmp
 laragon.exe
