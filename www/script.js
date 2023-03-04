@@ -76,6 +76,77 @@ async function getProductCards(){
 	 
 }
 
+async function getAllProduct(){
+
+	var productsJson = await getProducts();
+	
+	for(var i = 0; i < productsJson.length;i++){
+		
+		var productPlusEdit = document.createElement("div")
+		productPlusEdit.setAttribute("class", "productEdit");
+		
+		var ret = document.createElement("div");
+		ret.setAttribute("class", "product-info");
+		var image = document.createElement("img");
+		var i_name =productsJson[i].img_name; 
+		image.src = "../img/"+productsJson[i].img_name;
+		image.alt = productsJson[i].alt;
+		image.height = "300";
+		image.width = "300";
+		
+		var attributes = document.createElement("div");
+		attributes.setAttribute("class", "product-attributes");
+		
+		var description = document.createElement("label");
+		description.innerText = "Description: "
+		var descriptionValue = document.createElement("p");
+		descriptionValue.innerText = productsJson[i].description;
+		
+		var price = document.createElement("label");
+		price.innerText = "Price: ";
+		var priceValue = document.createElement("p");
+		priceValue.innerText = productsJson[i].price;
+		
+		var quantity = document.createElement("label");
+		quantity.innerText = "Quantity: ";
+		var quantityValue = document.createElement("p");
+		quantityValue.innerText = productsJson[i].quantity;
+		
+		var name = document.createElement("label");
+		name.innerText = "Product Name: ";
+		var nameValue = document.createElement("p");
+		nameValue.innerText = productsJson[i].title;
+		
+		var edit = document.createElement("button");
+		edit.innerText = "edit";
+		edit.setAttribute("class", "button");
+		
+		edit.addEventListener("click", editProduct);
+	
+		attributes.append(name, nameValue, price, priceValue, description, descriptionValue, quantity, quantityValue, edit);
+		
+		ret.append(image,attributes);
+		
+		productPlusEdit.append(ret);
+		
+		document.getElementById("product-dashboard").appendChild(productPlusEdit);
+		
+	}
+
+}
+
+function editProduct(e){
+	document.getElementById("productEditor").style.visibility = "visible";
+	
+	var parent = e.target.parentNode;
+	var child = parent.children;
+	
+	var child1 = child.item(1);
+	
+	alert(child1.innerText);
+	
+}
+
 async function  getProducts(){
 	const response = await fetch("http://localhost:3000/getProducts", {
 	method: 'GET',

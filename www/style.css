@@ -243,7 +243,6 @@ footer{
 hr{
 	
 	border: solid 1px #8C98A9;
-;
 }
 
 
@@ -321,5 +320,35 @@ button[type="submit"]:hover{
 #userName{
 	font-size: 20px;
 	color: white;
+	
+}
+
+#product-dashboard{
+	display: inline-flex;
+	flex-direction: column;
+
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 2em;
+
+	
+}
+
+.product-info{
+		display: grid;
+		grid-template-columns: 400px 400px;
+
+		justify-content: flex-start;
+		width: 100%;
+		height: 400px;
+		
+		background-color: grey;
+		border: solid 2px DarkSeaGreen;
+	
+}
+
+#productEditor{
+	visibility: hidden;
+	
 	
 }
