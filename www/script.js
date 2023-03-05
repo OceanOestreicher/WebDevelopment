@@ -123,7 +123,7 @@ async function getAllProduct(){
 		
 		edit.addEventListener("click", editProduct);
 	
-		attributes.append(name, nameValue, price, priceValue, description, descriptionValue, quantity, quantityValue, edit);
+		attributes.append(name, nameValue, price, priceValue,quantity, quantityValue, description, descriptionValue,  edit);
 		
 		ret.append(image,attributes);
 		
@@ -136,14 +136,29 @@ async function getAllProduct(){
 }
 
 function editProduct(e){
-	document.getElementById("productEditor").style.visibility = "visible";
+	var form = document.getElementById("productEditor");
+	form.style.visibility = "visible";
+	
+	var inputs = document.getElementById('productEditor').children;
+	
+
 	
 	var parent = e.target.parentNode;
 	var child = parent.children;
 	
-	var child1 = child.item(1);
+
+	var name = child.item(1).innerText;
+	inputs.item(1).defaultValue = name;
 	
-	alert(child1.innerText);
+	var price = child.item(3).innerText;
+	inputs.item(3).defaultValue = price;
+	
+	var quant = child.item(5).innerText;
+	inputs.item(5).defaultValue = quant;
+	
+	var desc = child.item(7).innerText;
+	inputs.item(7).defaultValue = desc;
+
 	
 }
 

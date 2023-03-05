@@ -42,13 +42,13 @@
 			<div id="products" class="product-header" tabindex = "0">Products</div>
 					<div id="product-dashboard" class = "product-dashboard"><script>getAllProduct()</script>
 					</div>
-					<form id="productEditor">
+					<form id="productEditor" method="" action="">
 					<label name="prodNameLabel" for="prodName">Product Name: </label>
 					<input name="prodName" id="prodName" type="text">
 					<label name="priceLabel" for="price">Price: </label>
 					<input name="price" id="price" type="number">
 					<label name="quantityLabel" for="quantity">Quantity: </label>
-					<input type="number" id="quantity" name="quantity" min="1" max="5">
+					<input type="number" id="quantity" name="quantity">
 					<label name="descLabel" for="desc">Description: </label>
 					<textarea name="desc" id="desc"></textarea>
 					<button type="submit" name="submitBtn" id="submitBtn">Submit Changes</button>
