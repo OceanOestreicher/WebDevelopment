@@ -19,13 +19,21 @@ connection.connect((err) => {
 
 var loggedIn = false;
 
+app.get('/validateLogin/:email', function(req,res){
+  let query = 'SELECT user_type FROM accounts where ? = email'
+  connection.query(query,[req.params.email],(err,rows)=>{
+    if(err)throw err;
+    res.status(200).json(rows);
+  })
+})
+app.get('/admin',function(req,res){
+  res.sendFile('/pages/admin-dashboard.html', {root: '../www'});
+})
+
 //Test query function of all users in the database
  app.get('/listUsers', function (req, res) {
     connection.query('SELECT * FROM accounts', (err,rows) => {
         if(err) throw err;
-      
-        console.log('Data received from Db:');
-        console.log(rows);
       });
       res.end(rows);
  })
@@ -54,8 +62,7 @@ var loggedIn = false;
 app.get('/accounts',function(req,res){
   if(loggedIn){
     loggedIn = false;
-    res.sendStatus(204);
-    //This should be executed once we implement log out features and/or account features
+    res.redirect("/");
   }
   else{
     res.sendFile('/pages/account.html', {root: '../www'});
@@ -65,14 +72,10 @@ app.get('/accounts',function(req,res){
  app.post('/validateLogin', function (req, res) {
     var email = req.body["email"];
     var password = req.body["password"];
-    console.log(email + " "+password);
     let sql = 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
     connection.query(sql,[email,password], (err,rows) => {
         if(err) throw err;
-        console.log('Data received from Db:');
-        console.log(rows);
         rows.forEach(row => {
-            console.log(row.valid);
             if(row.valid == 0)res.sendStatus(400)
             else{
               loggedIn = true;

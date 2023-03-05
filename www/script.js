@@ -176,11 +176,13 @@ return response.json();
 }
 
 //Fetch Api, login form frontend validation function
+//Logons are the following:
+//user@gmail.com | user1
+//admin@gmail.com | admin1
 async function  validateLogin(){
 
 	var e = document.getElementById("accountEmail").value;
 	var p = document.getElementById("accountPassword").value;
-	console.log("Frontend: "+e + " "+p);
 	const data = {email: e,
 				   password: p };
 	const response = await fetch("http://localhost:3000/validateLogin", {
@@ -190,18 +192,37 @@ async function  validateLogin(){
   		'Content-Type': 'application/json'
 	},
 	body: JSON.stringify(data),
-}).then(response => {
-	if(response.status == 400){
-		document.getElementById("error-Message").innerText = ("Invalid Credentials Entered");
-		return false;
-	} 
-	else{
-		//creates email cookie and sessionID cookie
+	}).then(response => {
+		if(response.status == 400){
+			document.getElementById("error-Message").innerText = ("Invalid Credentials Entered");
+			return false;
+		} 
+	});
+		var user_type = await getUserType(e)
+		console.log(user_type);
 		createCookies(e);
 		userNameMessage = e;
-		window.location.replace("http://localhost:3000/");
-	} 
-});
+		if(user_type == 'user'){
+			window.location.replace("http://localhost:3000/");	
+		}
+		else if(user_type == 'admin'){
+			window.location.replace("http://localhost:3000/admin");	
+		}
+		else throw new Error("Unknown User Type!");
+		
+}
+async function getUserType(user_email){
+	var user_type
+	const response = await fetch("http://localhost:3000/validateLogin/"+user_email,{
+		method: 'GET',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		}
+	}).then(response =>response.json()).then(data =>{
+		user_type = data[0].user_type;
+	});
+	return user_type;
 }
 
 function createCookies(email){ 
