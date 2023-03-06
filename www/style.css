@@ -352,3 +352,18 @@ button[type="submit"]:hover{
 	
 	
 }
+
+#loginLogoutStatus{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+}
+#loginLogoutStatus p{
+	color: white;
+	text-decoration: none;
+
+}

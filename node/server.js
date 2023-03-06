@@ -56,12 +56,17 @@ app.get('/admin',function(req,res){
  //Index page: localhost:3000/
  app.get('/',function(req,res){
     res.sendFile('index.html', {root: '../www'});
+
  })
 
 //Handles login/logout and account redirections
 app.get('/accounts',function(req,res){
   if(loggedIn){
     loggedIn = false;
+	res.cookie('logStatus', 'false');
+	res.clearCookie('email');
+	res.clearCookie('password');
+	
     res.redirect("/");
   }
   else{
@@ -79,12 +84,14 @@ app.get('/accounts',function(req,res){
             if(row.valid == 0)res.sendStatus(400)
             else{
               loggedIn = true;
+			  res.cookie('logStatus', 'true');
               res.sendStatus(200);
             } 
         });
       });
  })
-
+ 
 var server = app.listen(3000, function () {
     console.log("Server listening at localhost:3000")
  })
+ 

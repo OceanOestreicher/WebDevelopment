@@ -1,15 +1,5 @@
-const tagline = document.getElementById("header");
 
 let userNameMessage = "not logged in";
-
-//tagline.addEventListener("click", alphaMode);
-
-function alphaMode(){
-	
-	tagline.style.color = "Black";
-	tagline.textContent = "ALPHA XPRESS";
-	
-}
 
 async function generateProductInfo(){
 	const urlParams = new URLSearchParams(window.location.search);
@@ -73,7 +63,6 @@ async function getProductCards(){
 
 	}
 	
-	 
 }
 
 async function getAllProduct(){
@@ -141,12 +130,9 @@ function editProduct(e){
 	
 	var inputs = document.getElementById('productEditor').children;
 	
-
-	
 	var parent = e.target.parentNode;
 	var child = parent.children;
 	
-
 	var name = child.item(1).innerText;
 	inputs.item(1).defaultValue = name;
 	
@@ -200,7 +186,8 @@ async function  validateLogin(){
 	});
 		var user_type = await getUserType(e)
 		console.log(user_type);
-		createCookies(e);
+		createCookies(e, p);
+			
 		userNameMessage = e;
 		if(user_type == 'user'){
 			window.location.replace("http://localhost:3000/");	
@@ -225,41 +212,17 @@ async function getUserType(user_email){
 	return user_type;
 }
 
-function createCookies(email){ 
+function createCookies(email, password){ 
 	//create email cookie and sessionID cookie 
 	//session only lasts 30 minutes 
 	var now = new Date(); var minutes = 30; 
 	now.setTime(now.getTime() + (minutes * 60 * 1000)); 
-	document.cookie = "email=" + email + "; expires=" + now.toGMTString() + ";"; 
-	document.cookie = "sessionID=" + Math.random() * 100  + "; expires=" + now.toGMTString() + ";"; 
-	//alter database to store sessionID so that it can be used to match against stored cookie 
-
-}
-
-//this function should be called when the user logs out
-function deleteCookies(){
-	document.cookie = "email= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
-	document.cookie = "sessionID= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
-}
-
-//checks if the computer has the cookies from a previous session so it knows to display the email address
-function checkCookies(){
-	let cookies = document.cookie;
-	const cookiesPair = cookies.split(';');
+	document.cookies = "logStatus=true;"
+	document.cookie = "email=" + email + "; expires=" + now.toGMTString() + ";";
+	document.cookie = "password=" + password +"; expires=" + now.toGMTString() + ";"; 
 	
-	if(cookiesPair.length === 1){
-		return false;
-	}
-	
-	const firstCookie = cookiesPair[1];
-	
-		if(firstCookie.substr(0,6).trim() === "email"){
-			return true;
 
-		}
-		else{
-			return false;
-		}
+
 }
 
 //this should extend the session of user if the user logs in again with active session
@@ -272,14 +235,92 @@ function extendSession(){
 function displayUserName(){
 	
 	const userName = document.getElementById("userName");
-	let cookies = document.cookie;
-	const emailCookie = cookies.split(';');
+
+	if(checkCookie("email")){
 	
-	if(checkCookies()){
-	userName.innerHTML = emailCookie[1].substring(7);
+		userName.innerHTML = getCookie("email");
 	
 	}
 	else{
+	
 		userName.innerHTML = "Not Logged In!";
 	}
+}
+
+function displayLogStatus(){
+	
+	var logStatus = getLogStatus();
+
+
+	if(logStatus == "false"){
+		document.getElementById("logStatus").innerText = "Login?";
+	}
+	else{
+		document.getElementById("logStatus").innerText = "Logoff?";
+	}
+	
+}
+
+
+function getCookie(value){
+	var cookieString = document.cookie.substr(document.cookie.indexOf(value));
+	
+	if( cookieString.indexOf(";") == -1){
+		var cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.length - 1);
+	}
+	
+	var cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.indexOf(";"));
+	
+	return cookieValue;
+	
+}
+
+
+function getLogStatus(){
+	var cookieString = document.cookie.substr(document.cookie.indexOf("logStatus"));
+	var cookieValue;
+	if( cookieString.indexOf(";") == -1){
+		cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.length);
+	
+	}
+	else{
+		cookieValue = cookieString.substring( cookieString.indexOf("=") + 1,cookieString.indexOf(";"));
+	}
+	return cookieValue;
+	
+}
+
+
+function checkCookie(value){
+	const startingIndex = document.cookie.indexOf(value);
+	
+	if(startingIndex === -1){
+
+		return false;
+		
+	}
+	else{
+		return true;
+	}
+	
+}
+
+function autoLogin(){
+	
+	if(checkCookie("email")){
+
+	var loginForm = document.getElementById("loginForm");
+	var formInputs = loginForm.children;
+	
+	formInputs[2].defaultValue = getCookie("email");
+	formInputs[6].defaultValue = getCookie("password");
+
+	formInputs.submit();
+
+	}
+	else{
+		
+	}
+	
+	
 }
