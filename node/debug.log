@@ -1,0 +1,10 @@
+Server listening at localhost:3000
+Database successfully connected
+%s: %s
+%s: %s
+SELECT count(accountId) as valid FROM accounts where ? = email and ? =password
+{
+  sql: 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
+}
+User Logged in
+2:39:51 AM

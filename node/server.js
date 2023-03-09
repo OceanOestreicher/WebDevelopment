@@ -1,3 +1,6 @@
+//clears the console of logs for testing
+console.clear();
+
 var express = require('express');
 var app = express();
 app.use(express.json());
@@ -87,7 +90,14 @@ app.get('/accounts',function(req,res){
 			  res.cookie('logStatus', 'true');
               res.sendStatus(200);
             } 
+
         });
+       
+      console.log(sql);
+      console.log({sql});
+      console.log("User Logged in")
+      var d = new Date();
+      var time = d.toLocaleTimeString();console.log(time);
       });
  })
  
@@ -95,3 +105,27 @@ var server = app.listen(3000, function () {
     console.log("Server listening at localhost:3000")
  })
  
+//tracks time, starts the stopwatch code then ends within 5 seconds
+console.time()
+setTimeout(() => {
+  console.timeEnd()
+}, 5000)
+setTimeout(() => {
+  console.timeLog();
+}, 2000)
+
+
+
+console.log("log");
+console.warn("warn");
+console.error("error");
+
+var fs = require('fs');
+var util = require('util');
+var log_file = fs.createWriteStream(__dirname + '/debug.log', {flags : 'w'});
+var log_stdout = process.stdout;
+
+console.log = function(d) { //
+  log_file.write(util.format(d) + '\n');
+  log_stdout.write(util.format(d) + '\n');
+};
