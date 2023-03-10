@@ -40,7 +40,7 @@
 			<div id="products" class="product-header" tabindex = "0">Products</div>
 					<div id="product-dashboard" class = "product-dashboard"><script>getAllProduct()</script>
 					</div>
-					<form id="productEditor" method="" action="">
+					<form id="productEditor" method="post" action="/updateProduct">
 					<label name="prodNameLabel" for="prodName">Product Name: </label>
 					<input name="prodName" id="prodName" type="text">
 					<label name="priceLabel" for="price">Price: </label>
@@ -49,6 +49,7 @@
 					<input type="number" id="quantity" name="quantity">
 					<label name="descLabel" for="desc">Description: </label>
 					<textarea name="desc" id="desc"></textarea>
+					<input type="hidden" id = "oldProdName" name="oldProdName">
 					<button type="submit" name="submitBtn" id="submitBtn">Submit Changes</button>
 					</form>
 		</section>

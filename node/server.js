@@ -100,12 +100,27 @@ app.get('/accounts',function(req,res){
       var time = d.toLocaleTimeString();console.log(time);
       });
  })
+ app.post('/updateProduct',function(req,res){
+    let oldProductName = req.body['oldProdName']
+    let newProductName = req.body['prodName']
+    let price = req.body['price']
+    let quantity = req.body['quantity']
+    let desc = req.body['desc']
+
+    let sql = 'UPDATE products SET title = ?, price = ?, quantity = ?, description = ? where title = ?;'
+    connection.query(sql,[newProductName,price,quantity,desc,oldProductName],(err)=>{
+      if(err)throw err;
+
+    })
+    res.redirect("/admin")
+ })
  
 var server = app.listen(3000, function () {
     console.log("Server listening at localhost:3000")
  })
  
 //tracks time, starts the stopwatch code then ends within 5 seconds
+/*
 console.time()
 setTimeout(() => {
   console.timeEnd()
@@ -113,7 +128,7 @@ setTimeout(() => {
 setTimeout(() => {
   console.timeLog();
 }, 2000)
-
+*/
 
 
 console.log("log");

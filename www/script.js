@@ -100,7 +100,7 @@ async function getAllProduct(){
 		quantity.innerText = "Quantity: ";
 		var quantityValue = document.createElement("p");
 		quantityValue.innerText = productsJson[i].quantity;
-		
+
 		var name = document.createElement("label");
 		name.innerText = "Product Name: ";
 		var nameValue = document.createElement("p");
@@ -132,9 +132,10 @@ function editProduct(e){
 	
 	var parent = e.target.parentNode;
 	var child = parent.children;
-	
+
 	var name = child.item(1).innerText;
 	inputs.item(1).defaultValue = name;
+	inputs.item(8).value = name;//hidden field in case we want to change the product name
 	
 	var price = child.item(3).innerText;
 	inputs.item(3).defaultValue = price;
