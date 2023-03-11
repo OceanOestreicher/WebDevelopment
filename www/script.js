@@ -233,7 +233,7 @@ function extendSession(){
 	
 }
 //displays the email address to the user if they have already been logged in and there session is still active,
-//if not, then it will display "Not Logged In!"
+//if not, then it will display nothing
 function displayUserName(){
 	
 	const userName = document.getElementById("userName");
@@ -253,14 +253,15 @@ function displayLogStatus(){
 	
 	var logStatus = getLogStatus();
 
-
-	if(logStatus == "false"){
+	if(logStatus != "true" || logStatus == "false"){
 		document.getElementById("logStatus").innerText = "Login";
+
 	}
 	else{
 		document.getElementById("logStatus").innerText = "Logoff";
+
 	}
-	
+
 }
 
 
@@ -323,8 +324,6 @@ function autoLogin(){
 	else{
 		
 	}
-	
-	
 	
 }
 
