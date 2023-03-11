@@ -1,5 +1,6 @@
 
 let userNameMessage = "not logged in";
+let admin = false;
 
 async function generateProductInfo(){
 	const urlParams = new URLSearchParams(window.location.search);
@@ -187,7 +188,7 @@ async function  validateLogin(){
 	});
 		var user_type = await getUserType(e)
 		console.log(user_type);
-		createCookies(e, p);
+		createCookies(e, p, user_type);
 			
 		userNameMessage = e;
 		if(user_type == 'user'){
@@ -213,7 +214,7 @@ async function getUserType(user_email){
 	return user_type;
 }
 
-function createCookies(email, password){ 
+function createCookies(email, password,userType){ 
 	//create email cookie and sessionID cookie 
 	//session only lasts 30 minutes 
 	var now = new Date(); var minutes = 30; 
@@ -221,7 +222,7 @@ function createCookies(email, password){
 	document.cookies = "logStatus=true;"
 	document.cookie = "email=" + email + "; expires=" + now.toGMTString() + ";";
 	document.cookie = "password=" + password +"; expires=" + now.toGMTString() + ";"; 
-	
+	document.cookie = "userType=" + userType +"; expires=" + now.toGMTString() + ";";
 
 
 }
@@ -244,7 +245,7 @@ function displayUserName(){
 	}
 	else{
 	
-		userName.innerHTML = "Not Logged In!";
+		userName.innerHTML = "";
 	}
 }
 
@@ -254,10 +255,10 @@ function displayLogStatus(){
 
 
 	if(logStatus == "false"){
-		document.getElementById("logStatus").innerText = "Login?";
+		document.getElementById("logStatus").innerText = "Login";
 	}
 	else{
-		document.getElementById("logStatus").innerText = "Logoff?";
+		document.getElementById("logStatus").innerText = "Logoff";
 	}
 	
 }
@@ -267,11 +268,11 @@ function getCookie(value){
 	var cookieString = document.cookie.substr(document.cookie.indexOf(value));
 	
 	if( cookieString.indexOf(";") == -1){
-		var cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.length - 1);
+		var cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.length);
 	}
-	
+	else{
 	var cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.indexOf(";"));
-	
+	}
 	return cookieValue;
 	
 }
@@ -324,5 +325,25 @@ function autoLogin(){
 	}
 	
 	
+	
+}
+
+ function isAdmin(){
+			
+		if(!checkCookie("userType")){
+		}
+		else{
+			const userType = getCookie("userType");
+			
+			if(userType === "admin"){
+				document.getElementById("admin").style.display = "inline";
+				
+			}
+			else{
+				
+			}
+			
+		}
+
 	
 }

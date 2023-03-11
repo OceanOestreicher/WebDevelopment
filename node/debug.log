@@ -1,2 +1,44 @@
 Server listening at localhost:3000
 Database successfully connected
+SELECT count(accountId) as valid FROM accounts where ? = email and ? =password
+{
+  sql: 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
+}
+User Logged in
+11:39:55 PM
+SELECT count(accountId) as valid FROM accounts where ? = email and ? =password
+{
+  sql: 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
+}
+User Logged in
+11:45:16 PM
+SELECT count(accountId) as valid FROM accounts where ? = email and ? =password
+{
+  sql: 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
+}
+User Logged in
+11:54:14 PM
+SELECT count(accountId) as valid FROM accounts where ? = email and ? =password
+{
+  sql: 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
+}
+User Logged in
+11:56:53 PM
+SELECT count(accountId) as valid FROM accounts where ? = email and ? =password
+{
+  sql: 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
+}
+User Logged in
+11:57:26 PM
+SELECT count(accountId) as valid FROM accounts where ? = email and ? =password
+{
+  sql: 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
+}
+User Logged in
+12:11:58 AM
+SELECT count(accountId) as valid FROM accounts where ? = email and ? =password
+{
+  sql: 'SELECT count(accountId) as valid FROM accounts where ? = email and ? =password'
+}
+User Logged in
+12:12:23 AM

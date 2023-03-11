@@ -69,6 +69,7 @@ app.get('/accounts',function(req,res){
 	res.cookie('logStatus', 'false');
 	res.clearCookie('email');
 	res.clearCookie('password');
+	res.clearCookie("userType");
 	
     res.redirect("/");
   }
