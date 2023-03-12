@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital@1&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 	
 body{
 	margin: 0;
@@ -370,5 +370,33 @@ button[type="submit"]:hover{
 
 #admin{
 	display: none;
+	
+}
+
+.about-us-wrapper img{
+	width: 60%;
+	border: solid 3px DarkSeaGreen;
+	
+}
+
+.about-us-text{
+	color: white;
+	font-family: "lato";
+	width: 60%;
+	margin: auto;
+	font-size: 24px;
+	margin: .25em auto 2em;
+}
+
+.about-us-wrapper span{
+	font-family: "lato";
+	font-size: 16px;
+	margin: .25em auto 1em;
+}
+
+.about-us-wrapper h1{
+	font-family: "Fira Sans condensed";
+	font-weight: 800;
+	margin: 2em auto 1em;
 	
 }
