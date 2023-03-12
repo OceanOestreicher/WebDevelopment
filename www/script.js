@@ -33,10 +33,10 @@ async function generateProductInfo(){
 		$img.css("height", "500px");
 		$img.css("display", "inline");
 		$img.css("margin-left", "20px");
-		//$img.css("margin-top", "-40px");
+		$img.css("margin-top", "-40px");
 		$img.css("float", "left");
 		$img.css("padding", "10px");
-		$("span").css("margin-top", "auto");
+		//$("span").css("margin-top", "auto");
 		
 		//Append all 3 elements to page
 		$("#product").append($img);
@@ -62,13 +62,15 @@ async function getProductCards(){
 	*/
 	var productsJson = await getProducts();
 	
-	for(var i = 0; i < productsJson.length;i++){
+	for(var i = 0; i < 5;i++){
 		var ret = document.createElement("div");
 		ret.setAttribute("class", "product-link");
 		var image = document.createElement("img");
 		var i_name =productsJson[i].img_name; 
 		image.src = "../img/"+productsJson[i].img_name;
 		image.alt = productsJson[i].alt;
+		image.width = 200;
+		image.height = 100;
 		
 		var prodLink = document.createElement("a");
 		prodLink.href = "../pages/product-page.html?img_name="+i_name;
