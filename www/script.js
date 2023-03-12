@@ -1,5 +1,6 @@
 
 let userNameMessage = "not logged in";
+let admin = false;
 
 async function generateProductInfo(){
 	const urlParams = new URLSearchParams(window.location.search);
@@ -116,7 +117,7 @@ async function getAllProduct(){
 		quantity.innerText = "Quantity: ";
 		var quantityValue = document.createElement("p");
 		quantityValue.innerText = productsJson[i].quantity;
-		
+
 		var name = document.createElement("label");
 		name.innerText = "Product Name: ";
 		var nameValue = document.createElement("p");
@@ -148,9 +149,10 @@ function editProduct(e){
 	
 	var parent = e.target.parentNode;
 	var child = parent.children;
-	
+
 	var name = child.item(1).innerText;
 	inputs.item(1).defaultValue = name;
+	inputs.item(8).value = name;//hidden field in case we want to change the product name
 	
 	var price = child.item(3).innerText;
 	inputs.item(3).defaultValue = price;
@@ -202,7 +204,7 @@ async function  validateLogin(){
 	});
 		var user_type = await getUserType(e)
 		console.log(user_type);
-		createCookies(e, p);
+		createCookies(e, p, user_type);
 			
 		userNameMessage = e;
 		if(user_type == 'user'){
@@ -228,7 +230,7 @@ async function getUserType(user_email){
 	return user_type;
 }
 
-function createCookies(email, password){ 
+function createCookies(email, password,userType){ 
 	//create email cookie and sessionID cookie 
 	//session only lasts 30 minutes 
 	var now = new Date(); var minutes = 30; 
@@ -236,7 +238,7 @@ function createCookies(email, password){
 	document.cookies = "logStatus=true;"
 	document.cookie = "email=" + email + "; expires=" + now.toGMTString() + ";";
 	document.cookie = "password=" + password +"; expires=" + now.toGMTString() + ";"; 
-	
+	document.cookie = "userType=" + userType +"; expires=" + now.toGMTString() + ";";
 
 
 }
@@ -247,7 +249,7 @@ function extendSession(){
 	
 }
 //displays the email address to the user if they have already been logged in and there session is still active,
-//if not, then it will display "Not Logged In!"
+//if not, then it will display nothing
 function displayUserName(){
 	
 	const userName = document.getElementById("userName");
@@ -259,7 +261,7 @@ function displayUserName(){
 	}
 	else{
 	
-		userName.innerHTML = "Not Logged In!";
+		userName.innerHTML = "";
 	}
 }
 
@@ -267,14 +269,15 @@ function displayLogStatus(){
 	
 	var logStatus = getLogStatus();
 
+	if(logStatus != "true" || logStatus == "false"){
+		document.getElementById("logStatus").innerText = "Login";
 
-	if(logStatus == "false"){
-		document.getElementById("logStatus").innerText = "Login?";
 	}
 	else{
-		document.getElementById("logStatus").innerText = "Logoff?";
+		document.getElementById("logStatus").innerText = "Logoff";
+
 	}
-	
+
 }
 
 
@@ -282,11 +285,11 @@ function getCookie(value){
 	var cookieString = document.cookie.substr(document.cookie.indexOf(value));
 	
 	if( cookieString.indexOf(";") == -1){
-		var cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.length - 1);
+		var cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.length);
 	}
-	
+	else{
 	var cookieValue = cookieString.substring(cookieString.indexOf("=") + 1, cookieString.indexOf(";"));
-	
+	}
 	return cookieValue;
 	
 }
@@ -338,5 +341,24 @@ function autoLogin(){
 		
 	}
 	
+}
+
+ function isAdmin(){
+			
+		if(!checkCookie("userType")){
+		}
+		else{
+			const userType = getCookie("userType");
+			
+			if(userType === "admin"){
+				document.getElementById("admin").style.display = "inline";
+				
+			}
+			else{
+				
+			}
+			
+		}
+
 	
 }

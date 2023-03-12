@@ -1,3 +1,6 @@
+//clears the console of logs for testing
+console.clear();
+
 var express = require('express');
 var app = express();
 app.use(express.json());
@@ -66,8 +69,14 @@ app.get('/accounts',function(req,res){
 	res.cookie('logStatus', 'false');
 	res.clearCookie('email');
 	res.clearCookie('password');
+	res.clearCookie("userType");
 	
     res.redirect("/");
+  
+  //serer message with current time 
+  console.log("User Logged out")
+  var d = new Date();
+  var time = d.toLocaleTimeString();console.log(time);
   }
   else{
     res.sendFile('/pages/account.html', {root: '../www'});
@@ -87,11 +96,42 @@ app.get('/accounts',function(req,res){
 			  res.cookie('logStatus', 'true');
               res.sendStatus(200);
             } 
+
         });
+       
+      //serer message with current time 
+      console.log("User Logged in")
+      var d = new Date();
+      var time = d.toLocaleTimeString();console.log(time);
       });
+ })
+ app.post('/updateProduct',function(req,res){
+    let oldProductName = req.body['oldProdName']
+    let newProductName = req.body['prodName']
+    let price = req.body['price']
+    let quantity = req.body['quantity']
+    let desc = req.body['desc']
+
+    let sql = 'UPDATE products SET title = ?, price = ?, quantity = ?, description = ? where title = ?;'
+    connection.query(sql,[newProductName,price,quantity,desc,oldProductName],(err)=>{
+      if(err)throw err;
+
+    })
+    res.redirect("/admin")
  })
  
 var server = app.listen(3000, function () {
     console.log("Server listening at localhost:3000")
  })
- 
+
+
+//puts server messages into the .debug text file in node folder
+var fs = require('fs');
+var util = require('util');
+var log_file = fs.createWriteStream(__dirname + '/debug.log', {flags : 'w'});
+var log_stdout = process.stdout;
+
+console.log = function(d) { //
+  log_file.write(util.format(d) + '\n');
+  log_stdout.write(util.format(d) + '\n');
+}

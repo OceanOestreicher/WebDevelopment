@@ -367,3 +367,8 @@ button[type="submit"]:hover{
 	text-decoration: none;
 
 }
+
+#admin{
+	display: none;
+	
+}
