@@ -16,18 +16,34 @@ async function generateProductInfo(){
 		data = d[0]
 		console.log(data);
 	});
-		var ret = document.createElement("div");
-		var image = document.createElement('img');
-		image.src = "../img/" + data.img_name;
-		console.log(image.src);
-		console.log(data.img_name);
-		image.alt = data.alt;
-		image.width = 500;
-		var prodInfo = document.createElement("p");
-		var prodDesc = data.description;
-		prodInfo.innerText = data.title + " Price : $" + data.price + " Quantity: " + data.quantity;
-		ret.append(image, prodInfo, prodDesc);
-		document.getElementById('product-info').appendChild(ret);
+		//Setting up product image, name, price, and description
+		var $img = $("<img>");
+		$img.addClass("product-image"); 
+		var $prodName = $("<span>" + data.title + "</span>");
+		$prodName.addClass("product-name");
+		var $prodPrice = $("<span>" + " Price: $" + data.price + "</span>");
+		$prodPrice.addClass("product-price");
+		var $prodDesc = $("<span>" + data.description + "</span>");
+		$prodDesc.addClass("product-description");
+		//Styling product image, name, price, and description
+		$img.attr("src", "../img/" + data.img_name);
+		$img.attr("alt", data.alt);
+		$img.css("width", "500px");
+		$img.css("height", "500px");
+		$img.css("display", "inline");
+		$img.css("margin-left", "20px");
+		//$img.css("margin-top", "-40px");
+		$img.css("float", "left");
+		$img.css("padding", "10px");
+		$("span").css("margin-top", "auto");
+		
+		//Append all 3 elements to page
+		$("#product").append($img);
+		$("#product").append($prodName);
+		$("#product").append($prodPrice);
+		$("#product").append($prodDesc);
+		//ret.append(prodInfo, prodDesc);
+		//document.getElementById('product-info').appendChild(ret);
 }
 
 async function getProductCards(){
@@ -50,11 +66,11 @@ async function getProductCards(){
 		ret.setAttribute("class", "product-link");
 		var image = document.createElement("img");
 		var i_name =productsJson[i].img_name; 
-		image.src = "img/"+productsJson[i].img_name;
+		image.src = "../img/"+productsJson[i].img_name;
 		image.alt = productsJson[i].alt;
 		
 		var prodLink = document.createElement("a");
-		prodLink.href = "pages\/product-page.html?img_name="+i_name;
+		prodLink.href = "../pages/product-page.html?img_name="+i_name;
 		prodLink.innerText = productsJson[i].title;
 		
 		ret.append(image,prodLink);
