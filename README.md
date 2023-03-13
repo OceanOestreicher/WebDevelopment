@@ -26,6 +26,9 @@ Ocean implemented logging and logging off through the website. Group set a plan 
 February 27th-March 4th (Week 8)
 Notes: Ocean and Dominic implemented dynamic product pages for displaying our products. Ocean fixed GitHub so that unnecessary files werent be uploaded, implemented admin and user account types and redirection, removed reviews from product table. Johanne and Artur created the admin dashboard. Johanne implemented JQuery throughout the project
 
+March 6th-March 10th (Week 9)
+Ocean implemented user type, making it possible for admin users and regular users. Also added functionality to admin dashboard, allowing for admin type users to edit product attributes which will display from then on. Johanne fully finished cookie creation, completing the login logoff functionality. Arthur finished added more product images, names, decriptions, and reviews for website. Ian implemetented logging to website. Dominic styled the shopping page and product page using JQuery. He also helped create function that display products on home page and shoppping page.
+
 Setup For Using Laragon Install As Local Repository
 
 1. Have a fresh Laragon install
