@@ -18,8 +18,10 @@ async function generateProductInfo(){
 		console.log(data);
 	});
 		//Setting up product image, name, price, and description
+		var $grid = $("#product");
 		var $img = $("<img>");
-		$img.addClass("product-image"); 
+		$img.addClass("product-image");
+		var $prod = $("<div></div>"); 
 		var $prodName = $("<span>" + data.title + "</span>");
 		$prodName.addClass("product-name");
 		var $prodPrice = $("<span>" + " Price: $" + data.price + "</span>");
@@ -29,22 +31,65 @@ async function generateProductInfo(){
 		//Styling product image, name, price, and description
 		$img.attr("src", "../img/" + data.img_name);
 		$img.attr("alt", data.alt);
-		$img.css("width", "500px");
-		$img.css("height", "500px");
-		$img.css("display", "inline");
-		$img.css("margin-left", "20px");
-		$img.css("margin-top", "-40px");
-		$img.css("float", "left");
-		$img.css("padding", "10px");
-		//$("span").css("margin-top", "auto");
+		$img.css({
+			"grid-column": 1,
+			"width": "500px",
+			"height": "500px",
+			"float": "left",
+			"border": "solid black 2px",
+			"margin-bottom": "0em",
+			"margin-left": "1em"
+		});
+		$prod.css({
+			"grid-column": 2,
+			"height": "500px",
+			"width": "auto", 
+			"position": "relative",
+			"border": "solid black 2px",
+			"margin-top": "1em",
+		});
+		$prodName.css({
+			"margin": "0px",
+			"margin-top": "1.5em",
+			"align-items": "flex-start",
+			"justify-content": "flex-start",
+			"color": "black"
+		});
+		$prodPrice.css({
+			"justify-content": "flex-start",
+			"color": "black"
+		});
+		$prodDesc.css({
+			"position": "absolute",
+			"bottom": "0px",
+			"color": "black"
+		});
 		
-		//Append all 3 elements to page
-		$("#product").append($img);
-		$("#product").append($prodName);
-		$("#product").append($prodPrice);
-		$("#product").append($prodDesc);
-		//ret.append(prodInfo, prodDesc);
-		//document.getElementById('product-info').appendChild(ret);
+		//Append all 4 elements to grid
+		$grid.append($img);
+		$prod.append($prodName);
+		$prod.append($prodPrice);
+		$prod.append($prodDesc);
+		$grid.append($prod);
+
+		//Only done if the product has a review, as not all products have reviews :(
+		if(data.review != null){
+			var $prodRev = $("<div></div>");
+			var $review = $("<span>" + data.review + "</span>");
+			$review.addClass("review");
+			$prodRev.css({
+				"grid-row" : 2,
+				"grid-column": "span 2",
+				"min-height": "100px",
+				"overflow": "hidden",
+				"border": "solid black 2px"
+			});
+			$review.css("margin-top", "0px");
+			$prodRev.append($review);
+			$grid.append($prodRev); 
+		}
+
+		$("#product-footer").css("bottom", "0px");
 }
 
 async function getProductCards(){
@@ -82,6 +127,85 @@ async function getProductCards(){
 
 	}
 	
+}
+
+//Dynamically generates a grid for the products in the database.
+async function shoppingGrid(){
+	/*
+		get json results of 1 random product from database
+		parse the json for image name, alt tag, and title
+
+		then add product to dynamically generated grid
+	*/
+	var productsJson = await getProducts();
+
+	var index = 0; //productsJson product index
+	var gridTempRow = ""; //Used later for css styling - grid-template-rows
+	var gridTempCol = ""; //Used later for css styling - grid-template-columns
+	var numRows = Math.floor(Math.sqrt(productsJson.length)); //Number of rows dependent upon how many products we have
+	var $div = $(".shopping-grid");
+	for (let row = 1; row <= numRows; row++){
+		gridTempRow += "300px "; //Adds depending on the # of rows
+		for (let col = 1; col <= (productsJson.length / numRows); col++, index++){ //Number of colums dependent on how many rows
+			//Adding each product to grid and doing styling for all
+			var $prod = $("<div></div>");
+			$prod.addClass("product-link");
+			var $img = $("<img>");
+			var i_name =productsJson[index].img_name; 
+			$img.attr("src", "../img/"+i_name);
+			$img.attr("alt", productsJson[index].alt);
+			$img.css("width", "200");
+			$img.css("height", "200");
+			$img.css("border", "solid black 3px");
+			
+			var $prodLink = $("<a>");
+			$prodLink.attr("href", "../pages/product-page.html?img_name="+i_name);
+			$prodLink.html(productsJson[index].title);
+			
+			$prod.append($img);
+			$prod.append($prodLink);
+			$prod.css("grid-row", row);
+			$prod.css("grid-column", col);
+			$div.append($prod);
+		}
+	}
+
+	for (let i = 0; i < (productsJson.length / numRows); i++){
+		gridTempCol += "300px "; //Adds depending on the # of columns
+	}
+
+	$(".shopping-grid").css("grid-template-rows", gridTempRow.trim());
+	$(".shopping-grid").css("grid-template-columns", gridTempCol.trim());
+	
+	/*
+
+	Old function version - non-grid format
+
+	for(var i = 0; i < productsJson.length;i++){
+		var $div = $(".product-grid");
+		var $prod = $("<section></section>");
+		$prod.addClass("product-link")
+		//$div.addClass("product-grid");
+		var $img = $("<img>");
+		var i_name =productsJson[i].img_name; 
+		$img.attr("src", "../img/"+i_name);
+		$img.attr("alt", productsJson[i].alt);
+		$img.css("width", "200");
+		$img.css("height", "200");
+		
+		var $prodLink = $("<a>");
+		//$prodLink.addClass("product-link");
+		$prodLink.attr("href", "../pages/product-page.html?img_name="+i_name);
+		$prodLink.html(productsJson[i].title);
+		
+		$prod.append($img);
+		$prod.append($prodLink);
+		$div.append($prod);
+
+		$("#product-content").append($div);
+
+	}
+	*/
 }
 
 async function getAllProduct(){
@@ -140,6 +264,13 @@ async function getAllProduct(){
 		document.getElementById("product-dashboard").appendChild(productPlusEdit);
 		
 	}
+
+}
+
+async function createGrid(){
+	
+	var productsJson = await getProducts();
+
 
 }
 
