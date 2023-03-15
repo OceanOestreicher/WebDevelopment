@@ -424,3 +424,53 @@ button[type="submit"]:hover{
 	justify-items: center;
 	display: inline;
 }
+
+.testimonial{
+
+	height: 700px;
+	background-color: #849488;
+}
+
+.testimonial img{
+	border: solid 3px white;
+	
+}
+
+.testimonial p{
+	color: white;
+	font-family: "lato";
+	width: 55%;
+	margin: auto;
+	font-size: 26px;
+	margin: .25em auto 2em;
+	
+}
+
+.testimonial h1{
+	font-size: 40px;
+	font-family: "impact";
+	letter-spacing: .07em;
+	color: white;
+	font-weight: 300;
+}
+
+.testimonials{
+	width: 85%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 4em;
+	margin: 4em auto 4em;
+	
+}
+
+.personal-moment{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+
+	background-color: #849488;
+	
+}
+
