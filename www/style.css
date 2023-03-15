@@ -326,34 +326,80 @@ button[type="submit"]:hover{
 	
 }
 
+
+.product-header{
+	margin: 0 auto 1em;
+}
 #product-dashboard{
-	display: inline-flex;
+	display: flex;
 	flex-direction: column;
-
-	justify-content: flex-start;
-	align-items: flex-start;
+	justify-content: center;
+	align-items: center;
+	margin: 3em auto 3m;
 	gap: 2em;
-
+	
 	
 }
 
 .product-info{
 	display: grid;
-	grid-template-columns: 400px 400px;
+	grid-template-columns: 400px 800px;
 
 	justify-content: flex-start;
 	width: 100%;
-	height: 400px;
-	
+	height: 100%;
+	padding: 2em;
 	background-color: grey;
 	border: solid 2px DarkSeaGreen;
+		font-family: "lato";
 	
+}
+
+.product-info img{
+	border: solid 2px DarkSeaGreen;
+	
+}
+html {
+  scroll-behavior: smooth;
 }
 
 #productEditor{
 	visibility: hidden;
+	height: 600px;
+	width: 700px;
+	display: flex;
+	gap: 1em;
+	font-family: "lato";
 	
 	
+}
+
+.button{
+	background-color: white;
+	width: 200px;
+	height: 40px;
+	margin: .5em auto 1em;
+	border: solid 1px #8C98A9;
+	color: DarkSeaGreen;
+	
+}
+
+.button:active{
+		background-color: black;
+	
+}
+
+input[type="text"]{
+ line-height: 28px;
+}
+
+input[type="number"]{
+ line-height: 28px;
+}
+
+input[type="textarea"]{
+ line-height: 28px;
+ box-sizing: border-box;
 }
 
 #loginLogoutStatus{

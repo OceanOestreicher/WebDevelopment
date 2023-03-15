@@ -250,11 +250,10 @@ async function getAllProduct(){
 		nameValue.innerText = productsJson[i].title;
 		
 		var edit = document.createElement("button");
-		edit.innerText = "edit";
+		edit.innerText = "Edit Product";
 		edit.setAttribute("class", "button");
 		
 		edit.addEventListener("click", editProduct);
-	
 		attributes.append(name, nameValue, price, priceValue,quantity, quantityValue, description, descriptionValue,  edit);
 		
 		ret.append(image,attributes);
@@ -275,6 +274,7 @@ async function createGrid(){
 }
 
 function editProduct(e){
+	document.getElementById("productEditor").scrollIntoView();
 	var form = document.getElementById("productEditor");
 	form.style.visibility = "visible";
 	
